@@ -4,6 +4,7 @@ import './index.css'
 import { BasicExample } from './screens/BasicExample'
 import { IntervalReducers } from './screens/IntervalReducers'
 import { PingPong } from './screens/PingPong'
+import { Konami } from './screens/Konami'
 
 class App extends Component {
   render() {
@@ -27,6 +28,9 @@ class App extends Component {
               <li>
                 <NavLink to="/interval-reducers">Interval Reducers</NavLink>
               </li>
+              <li>
+                <NavLink to="/konami-code">Konami Code</NavLink>
+              </li>
             </ul>
           </nav>
           <main className="mainContent">
@@ -34,6 +38,7 @@ class App extends Component {
             <Route path="/basic" component={BasicExample} />
             <Route path="/ping-pong" component={PingPong} />
             <Route path="/interval-reducers" component={IntervalReducers} />
+            <Route path="/konami-code" component={Konami} />
           </main>
         </div>
       </Router>
