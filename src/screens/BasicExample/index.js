@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Sample from './code-sample.md'
 import hljs from 'highlightjs'
 
-export class BasicExample extends Component {
+export default class BasicExample extends Component {
   componentDidMount() {
     hljs.initHighlighting()
   }

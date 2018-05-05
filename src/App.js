@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
+import { ExampleRoute } from './ExampleRoute'
 import './index.css'
-import { BasicExample } from './screens/BasicExample'
-import { IntervalReducers } from './screens/IntervalReducers'
-import { PingPong } from './screens/PingPong'
-import { Konami } from './screens/Konami'
 
 class App extends Component {
   render() {
@@ -35,10 +32,13 @@ class App extends Component {
           </nav>
           <main className="mainContent">
             <Route path="/" exact render={() => <h1>Home</h1>} />
-            <Route path="/basic" component={BasicExample} />
-            <Route path="/ping-pong" component={PingPong} />
-            <Route path="/interval-reducers" component={IntervalReducers} />
-            <Route path="/konami-code" component={Konami} />
+            <ExampleRoute path="/basic" component="BasicExample" />
+            <ExampleRoute path="/ping-pong" component="PingPong" />
+            <ExampleRoute
+              path="/interval-reducers"
+              component="IntervalReducers"
+            />
+            <ExampleRoute path="/konami-code" component="Konami" />
           </main>
         </div>
       </Router>
