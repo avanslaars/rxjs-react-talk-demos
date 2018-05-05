@@ -13,7 +13,11 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App">{this.props.keyCode}</div>
+    return (
+      <div className="App">
+        {this.props.keyCode} - {this.props.message}
+      </div>
+    )
   }
 }
 
