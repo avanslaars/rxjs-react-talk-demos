@@ -1,6 +1,6 @@
 import { ofType } from 'redux-observable'
 import { interval } from 'rxjs'
-import { map, switchMap, takeUntil } from 'rxjs/operators'
+import { map, switchMap, takeUntil, tap } from 'rxjs/operators'
 
 const initState = {
   tick: 0,
@@ -22,15 +22,17 @@ const intervalEpic = (action$, state$, dependencies) =>
     ofType(START_INTERVAL),
     switchMap(({ payload }) => {
       return interval(payload).pipe(
-        takeUntil(action$.pipe(ofType(STOP_INTERVAL))),
-        map(tick => ({ type: UPDATE_INTERVAL, payload: tick }))
+        tap(console.log),
+        tap(() => console.log(state$.value)),
+        map(tick => ({ type: UPDATE_INTERVAL, payload: tick })),
+        takeUntil(action$.pipe(ofType(STOP_INTERVAL)))
       )
     })
   )
 
 export const rootEpic = intervalEpic
 
-export default function (state = initState, action) {
+export default function(state = initState, action) {
   switch (action.type) {
     case START_INTERVAL:
       return { ...state, isRunning: true }
