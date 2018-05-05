@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Warn: you should configure a test runner and add tests\" && exit 0",
+    "test":
+      "echo \"Warn: you should configure a test runner and add tests\" && exit 0",
     "build": "webpack",
     "watch": "webpack --watch",
-    "serve": "json-server db.json",
+    "serve": "node ./server",
     "dev": "npm run watch & npm run serve"
   },
   "keywords": [],

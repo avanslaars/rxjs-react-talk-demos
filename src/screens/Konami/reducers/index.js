@@ -43,8 +43,6 @@ const keyListenerEpic = (action$, state$, dependencies) =>
 export const rootEpic = keyListenerEpic
 
 export default function(state = initState, action) {
-  console.log('Reducer called', action)
-
   switch (action.type) {
     case UPDATE_STATUS:
       return { ...state, keyCode: action.payload }
